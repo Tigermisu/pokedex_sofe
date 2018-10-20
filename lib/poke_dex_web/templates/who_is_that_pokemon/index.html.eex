@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+        $("#btn").click(function() {
+          var pokemon = {name : document.getElementById("i") , id : "<%= @pokemonId %>" }
+          $.ajax({
+            method: "GET",
+            url: "/whoPokemonValidate?name="+document.getElementById("i").value+"&id=<%= @pokemonId %>"
+          })
+            .done(function( msg ) {
+              if (msg.success) {
+                alert("You win!!!!");
+              } else {
+                alert ("You Lose!! :(");
+              }
+            });
+     })
+    })
+
+    </script>
+
+  <h1>Pokemon Id:</h1>
+  <h1><%= @pokemonId %></h1>
+  <h1>
+  <input type="text" id="i"><button id="btn">Try</button>
+  </h1>
+  <a href="/">Home</a>

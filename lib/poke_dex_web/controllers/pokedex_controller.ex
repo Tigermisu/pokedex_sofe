@@ -1,23 +1,20 @@
 defmodule PokeDexWeb.PokedexController do
   use PokeDexWeb, :controller
 
-  def s(conn, _params) do
-    c = 1
-    h = "<h1>Pokedex</h1>"
-    p(conn, c, h)
+  def index(conn, _params) do
+    render conn, "index.html", pokemon: getPokemon 1, ""
   end
 
-  def p(conn, i, t) do
-    if i <= 15 do
-      u = "https://pokeapi.co/api/v2/pokemon/#{i}/"
-      r = HTTPoison.get!(u)
-      p2 = JSON.decode!(r.body)["forms"] |> List.first
-      t = t <> "<h2>##{i} #{p2["name"]}</h2>"
-      i = i+1
-      p(conn, i, t)
-    else
-      html conn, t
-    end
+  def getPokemon(15, text) do 
+    text
+  end
+
+  def getPokemon(counter, text) do
+    url = "https://pokeapi.co/api/v2/pokemon/#{counter}/"
+    response = HTTPoison.get!(url)
+    pokemonData = JSON.decode!(response.body)["forms"] |> List.first
+    text = text <> "<h2>##{counter} #{pokemonData["name"]}</h2>"
+    getPokemon(counter+1, text)
   end
 
 end

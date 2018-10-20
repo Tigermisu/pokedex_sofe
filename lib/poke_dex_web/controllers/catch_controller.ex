@@ -1,14 +1,14 @@
 defmodule PokeDexWeb.CatchController do
   use PokeDexWeb, :controller
 
-  def f3(conn, _params) do
-    n = :rand.uniform(3) + 2
-    f = for i<- 1..n, do: i
-    s = Enum.reduce(f, "", fn(time,a) ->
-      r = :rand.uniform(802)
-      a <> "<br>Pokemon ##{r} is near by. Do you want to catch it?" <> "<a href=\"catchit?i=#{r}\">Catch!</a>"
+  def index(conn, _params) do
+    randomNumber = :rand.uniform(3) + 2
+    range = for i<- 1..randomNumber, do: i
+    textSet = Enum.reduce(range, "", fn(time,text) ->
+      randomId = :rand.uniform(802)
+      text <> "<br>Pokemon ##{randomId} is near by. Do you want to catch it?" <> "<a href=\"catchit?i=#{randomId}\">Catch!</a>"
     end)
 
-    html conn, s
+    render conn, "index.html", text: textSet
   end
 end

@@ -18,11 +18,11 @@ defmodule PokeDexWeb.Router do
 
     get "/", PageController, :index
     get "/search", PageController, :search
-    get "/pokedex", PokedexController, :s
-    get "/catch", CatchController, :f3
-    get "/catchit", CatchPokemonController, :f4
-    get "/whoPokemon", WhoIsThatPokemon, :whoIs
-    get "/whoPokemonValidate", WhoIsThatPokemon, :f1
+    get "/pokedex", PokedexController, :index
+    get "/catch", CatchController, :index
+    get "/catchit", CatchPokemonController, :index
+    get "/whoPokemon", WhoIsThatPokemonController, :index
+    get "/whoPokemonValidate", WhoIsThatPokemonController, :validate
   end
 
 
