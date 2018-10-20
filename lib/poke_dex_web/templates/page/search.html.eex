@@ -12,4 +12,4 @@
   </div>
 <% end %>
 
-<h3><a href="/pokedex?id=<%= @pokemonId %>">View in Pokedex!</h3>
+<h3><a href="/pokedex?id=<%= @pokemonId %>">View in Pokedex!</a></h3>
