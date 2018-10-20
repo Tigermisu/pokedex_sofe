@@ -1,2 +1,15 @@
+<h1>Search Results</h1>
 
-  <h1>Welcome to <%= @pokemonName %></h1>
+<h2>#<%= @pokemonId %> <%= @pokemonName %></h2>
+<p><b>Type:</b> <%= @pokemonType %></p>
+<img src="<%= @pokemonImage %>" alt="A picture of <%= @pokemonName %>" title="<%= @pokemonName %>"/>
+
+<h4>Evolutions:</h4>
+
+<%= for {evolution, _} <- Enum.with_index(@evolutions) do %>
+  <div class="evolution">
+    <a href='<%= evolution[:url] %>'><%= evolution[:name] %></a>
+  </div>
+<% end %>
+
+<h3><a href="/pokedex?id=<%= @pokemonId %>">View in Pokedex!</h3>

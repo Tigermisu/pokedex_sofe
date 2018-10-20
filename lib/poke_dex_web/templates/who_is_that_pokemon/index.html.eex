@@ -2,6 +2,19 @@
 
     <script>
     $(document).ready(function(){
+      
+
+        setTimeout(() => {
+          alert("10s are over, you lost. :(");
+          $('#i').remove();
+            $('#btn').remove();
+          $('#retry').removeAttr("style");
+        }, 10000)
+
+        $('#retry').click(function() {
+          window.location.reload()
+        });
+            
         $("#btn").click(function() {
           var pokemon = {name : document.getElementById("i") , id : "<%= @pokemonId %>" }
           $.ajax({
@@ -11,8 +24,13 @@
             .done(function( msg ) {
               if (msg.success) {
                 alert("You win!!!!");
+                $('#i').remove();
+                $('#retry').removeAttr("style").text("Play again!");
               } else {
                 alert ("You Lose!! :(");
+                $('#i').remove();
+                $('#btn').remove();
+                $('#retry').removeAttr("style");
               }
             });
      })
@@ -20,9 +38,11 @@
 
     </script>
 
-  <h1>Pokemon Id:</h1>
-  <h1><%= @pokemonId %></h1>
+  <h1>Who is that pokemon?</h1>
+  <h3>Quick! You have 10 seconds!</h3>
+  <img src="<%= @pokemonImage %>" style="width: 300px; max-width: 100%;">
   <h1>
   <input type="text" id="i"><button id="btn">Try</button>
+  <button id="retry" style="display: none;">Try again</button>
   </h1>
   <a href="/">Home</a>

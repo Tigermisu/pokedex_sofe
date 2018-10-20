@@ -18,6 +18,23 @@
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
+
+        <h2>Menu</h2>
+        
+        <h3>Search for a pokemon!</h3>
+        <input type="text" id="search"><button onclick="window.location.replace('/search?id='+document.getElementById('search').value)">search</button>
+
+        <h3>Search for pokemons of a type!</h3>
+        <input type="text" id="searchType"><button onclick="window.location.replace('/searchType?type='+document.getElementById('searchType').value)">search</button>
+   
+        <a href="/whoPokemon"><h3>Play "Who is that Pokemon?</h3></a>
+
+        
+        <a href="/pokedex"><h3>Pokedex</h3></a>
+
+        
+        <a href="/catch"><h3>Catch Pokemons</h3></a>
+        
       </main>
 
     </div> <!-- /container -->

@@ -18,6 +18,7 @@ defmodule PokeDexWeb.Router do
 
     get "/", PageController, :index
     get "/search", PageController, :search
+    get "/searchType", PageController, :searchTypes
     get "/pokedex", PokedexController, :index
     get "/catch", CatchController, :index
     get "/catchit", CatchPokemonController, :index

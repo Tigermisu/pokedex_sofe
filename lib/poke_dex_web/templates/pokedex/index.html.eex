@@ -1,3 +1,25 @@
-<h1>Pokedex!</h1>
+<style>
+    .pokedex {
+        background-color: #66FF66;
+        padding: 24px;
+        width: 100%;
+    }
 
-<%= @pokemon %>
+    .pokedex a {
+        color: #3399ff;
+    }
+</style>
+
+<div class="pokedex">
+    <h1>Pokedex!</h1>
+
+    <h2>Name</h2>
+    <h2><%= @pokemon[:name] %></h2>
+
+    <p><b>Type:</b> <%= @pokemon[:type] %></p>
+    <img src="<%= @pokemon[:img] %>" alt="A picture of <%= @pokemon[:name] %>" title="<%= @pokemon[:name] %>"/>
+
+
+    <h3><a href="/pokedex?id=<%= @pokemon[:nextId] %>">Next pokemon!</a></h3>
+</div>
+

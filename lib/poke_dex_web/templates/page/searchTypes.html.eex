@@ -1,0 +1,8 @@
+<h1>Search Results for type <%= @type %></h1>
+
+<%= for {pokemon, _} <- Enum.with_index(@pokemons) do %>
+  <div class="pokemon">
+    <h3>#<%= pokemon[:id] %> <%= pokemon[:name] %></h3>
+    <img src="<%= pokemon[:image] %>"/>
+  </div>
+<% end %>
