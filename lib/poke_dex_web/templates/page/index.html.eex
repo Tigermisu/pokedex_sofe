@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h2>Welcome to the pokemon world!</h2>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+  <h2>Search for a pokemon!</h2>
+    <input type="text" id="search"><button onclick="window.location.replace('/search?j='+document.getElementById('search').value)">search</button>
+  </div>
+</div>
